@@ -1,5 +1,6 @@
 AOS.init({
-  duration: 2000
+  duration: 2000,
+  once: true
   
 });
 
@@ -242,10 +243,14 @@ function fixnav(){
     navBar.style.position = "fixed";
     navBar.style.top = "0px";
     navBar.style.borderTop = "none";
+    
   }else {
     navBar.style.position = "relative";
     navBar.style.top = "";
     navBar.style.borderTop = "";
    
+   
   }
+
+  
 }
