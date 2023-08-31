@@ -1347,10 +1347,12 @@ padding-top: 10px;
       margin-bottom: 25px;
       display: inline;
       color: rgba(0, 0, 77, 1);
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       z-index: 1;
       
     }
+
+  
      
     .sidenav {
       height: 400px;

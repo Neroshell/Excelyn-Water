@@ -90,6 +90,7 @@ printNumbersInRange(5, 99, ".span-6", 200, 10);
 printNumbersInRange(1, 21, ".span-6-3", 5000, 65);
 
 //form Validations
+const input = document.querySelector(".input");
 const fname = document.querySelector("#firstname");
 const lname = document.querySelector("#lastname");
 const firstnameMessage = document.querySelector(".first_message");
@@ -103,6 +104,101 @@ const bottleMessage = document.querySelector(".bottle_message");
 const phoneNumber = document.querySelector("#phone");
 const phoneMessage = document.querySelector(".phone_message");
 
+fname.addEventListener("input", (e) => {
+  if (!isNaN(e.target.value)) {
+    e.target.style.outlineColor = "red";
+    firstnameMessage.innerHTML = "Name cannot be a number.";
+    firstnameMessage.style.color = "red";
+    setTimeout(() => {
+        firstnameMessage.innerHTML = "";
+        e.target.style.outlineColor = "";
+
+    }, 3000);
+
+  } else {
+    e.target.style.outlineColor = "green";
+    firstnameMessage.innerHTML = "";
+    e.target.style.border = " 1px solid green";
+  }
+
+  
+});
+
+lname.addEventListener("input", (e) => {
+  if (!isNaN(e.target.value)) {
+    e.target.style.outlineColor = "red";
+   
+    lastnameMessage.innerHTML = "Name cannot be a number.";
+    lastnameMessage.style.color = "red";
+    setTimeout(() => {
+        lastnameMessage.innerHTML = "";
+        e.target.style.outlineColor = "";
+
+    }, 3000);
+
+  } else {
+    e.target.style.outlineColor = "green";
+    e.target.style.border = " 1px solid green";
+    lastnameMessage.innerHTML = "";
+  }
+
+  
+});
+
+add.addEventListener("input", (e) => {
+  if (!isNaN(e.target.value)) {
+    e.target.style.outlineColor = "green";
+    e.target.style.border = " 1px solid green";
+    addMessage.innerHTML = " ";
+    setTimeout(() => {
+        addMessage.innerHTML = "";
+        e.target.style.outlineColor = "";
+
+    }, 3000);
+
+  } else {
+    e.target.style.outlineColor = "green";
+    e.target.style.borderColor = "green";
+    addMessage.innerHTML = "";
+  }
+
+  
+});
+
+quantity.addEventListener("input", (e) => {
+
+    if(isNaN(e.target.value)){
+
+      e.target.style.outlineColor = "red";
+      quantityMessage.innerHTML = "Quantity must be a number";
+      quantityMessage.style.color = "red";
+
+      setTimeout(() => {
+        quantityMessage.innerHTML = "";
+        e.target.style.outlineColor = "";
+
+    }, 3000);
+    }else{
+      e.target.style.outlineColor = "green";
+      e.target.style.border = " 1px solid green";
+      quantityMessage.innerHTML = "";
+    }
+
+});
+
+
+
+phoneNumber.addEventListener("input", (e) => {
+    if (!isNaN(phoneNumber.value)) {
+        phoneNumber.style.border = "1px solid green";
+        phoneNumber.style.outline = "1px solid green";
+        phoneMessage.innerHTML = "";
+    } else {
+        phoneNumber.style.border = "1px solid red";
+        phoneNumber.style.outline = "1px solid red";
+    }
+});
+
 
 const form = document.querySelector(".form");
 
@@ -112,18 +208,18 @@ form.addEventListener("submit", validate);
 
       if (fname.value === ""){
 
-          lastnameMessage.innerHTML = "Please enter your first name";
-          lastnameMessage.style.color = "red";
-          lname.style.border = "1px solid red";
+          firstnameMessage.innerHTML = "Please enter your first name";
+          firstnameMessage.style.color = "red";
+          fname.style.border = "1px solid red";
           event.preventDefault();
 
       }
 
       if (lname.value === ""){
 
-        firstnameMessage.innerHTML = "Please enter your last name";
-        firstnameMessage.style.color = "red";
-        fname.style.border = "1px solid red";
+        lastnameMessage.innerHTML = "Please enter your last name";
+        lastnameMessage.style.color = "red";
+        lname.style.border = "1px solid red";
         event.preventDefault();
 
     }
@@ -153,12 +249,9 @@ if (phoneNumber.value === ""){
   phone.style.border = "1px solid red";
   event.preventDefault();
 
-}
+  }
 
-    
-    
 }
-
 
 
 // first box
