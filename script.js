@@ -347,3 +347,31 @@ function fixnav(){
 
   
 }
+
+const sixTwo = document.querySelector('.span-6-2');
+const six = document.querySelector('.span-6');
+const sixThree = document.querySelector('.span-6-3');
+
+const threeDivs = document.querySelector('.span-6-2, .span-6, .span-6-3');
+
+if (threeDivs) {
+  
+  function handleIntersection(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+       
+        printNumbersInRange(1, 103, ".span-6-2", 2000, 10);
+        printNumbersInRange(5, 99, ".span-6", 200, 10);
+        printNumbersInRange(1, 21, ".span-6-3", 5000, 65);
+      }
+    });
+  }
+
+  
+  const observer = new IntersectionObserver(handleIntersection);
+
+  // Start observing the turnover div
+  observer.observe(threeDivs);
+}
+
+
